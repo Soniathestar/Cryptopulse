@@ -12,3 +12,27 @@ body {
     color: white;
     min-height: 100vh;
 }
+
+/* INTRO PAGE */
+.intropage {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(to right, #ff6a00, #ee09bc);
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+
+.intropage h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-decoration: underline;
+}
+
+.intropage p {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin-inline: auto;
+    color: white;
+}
