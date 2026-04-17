@@ -2,7 +2,7 @@
 A website that allows for users with little to no experience in the crypto-trading environment to learn the skill, observe the trend of currencies such as bitcoin and convert the value into a favourble currency 
 
 # Demo
-Here is the live link: https://soniathestar.github.io/Cryptopulse/
+Here is the live link: 
 
 
 # Tech Stack
