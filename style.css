@@ -62,3 +62,24 @@ body {
     box-shadow: 0 0 15px rgba(0,0,0,0.4);
     color: #000000;
 }
+
+* CONVERTER */
+.converter {
+    margin: 40px auto;
+    padding: 30px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    background: linear-gradient(135deg, #00b4d8, #90dbf4);
+    border-radius: 25px;
+    color: black;
+}
+
+.converter input,
+.converter select {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    width: 80%;
+}
