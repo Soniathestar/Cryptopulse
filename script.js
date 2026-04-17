@@ -11,7 +11,7 @@ convertBtn.addEventListener("click", async  () => {
     const currency = currencySelect.value;
     const coin = searchInputCoin.value.toLowerCase();
 
-    if (!amount || !coin) {
-        resultEl.textContent = "Enter amount and crypto name first.";
-        return;
-    }
+    if (isNaN(amount) || coin.trim() === "") {
+    resultEl.textContent = "Enter a valid amount and crypto name first.";
+    return;
+     }
