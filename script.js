@@ -26,4 +26,20 @@ convertBtn.addEventListener("click", async  () => {
             resultEl.textContent = "Invalid crypto name.";
             return;
         }
+       }
+    //Conversion of price
+        const price = data[coin][currency];
+        const total = amount * price;
+
+        resultEl.textContent = `${amount} ${coin.toUpperCase()} = ${total.toFixed(2)} ${currency.toUpperCase()}`;
+
+     catch (error) {
+        resultEl.textContent = "Conversion failed. Try again.";
     }
+});  
+
+const form = document.getElementById("searchform");
+const searchInput = document.getElementById("searchtext");
+const nameEl = document.getElementById("cryptoname");
+const priceEl = document.getElementById("cryptoprice");
+const changeEl = document.getElementById("cyptochange");
