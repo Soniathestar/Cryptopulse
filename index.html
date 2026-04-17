@@ -33,11 +33,30 @@
 
         </div>
 
-        <!-- Display of the coin ststus graph -->
+        <!-- Display of the coin status graph -->
         <div class="graphcontainer">
             <h3>Crypto-price chart</h3>
             <canvas id="chart"></canvas>
-
         </div>
+    </section>
+
+    <!-- The currency converter-->
+    <section class="converter">
+        <h2>CRYPTOCURRENCY CONVERTER</h2>
+        <input type="number" id="amount" placeholder="Enter amount">
+
+        <select name="popcurrencies" id="popcurrencies">
+            <option value="usd">USD ~ US Dollar </option>
+            <option value="eur">EUR ~ Euro</option>
+            <option value="gbp">GBP ~ British Pound</option>
+            <option value="ksh">KSH ~ Kenyan Shilling</option>
+            <option value="jpy">JPY ~ Japanese Yen</option>
+        </select>
+
+        <input type="text" id="currencysearch" placeholder="Search all currencies">
+        <select name="allcurrences" id="allcurrencies"></select>
+
+        <button id="converter">Convert</button>
+        <p id="results">Here are the results!</p>
     </section>
     
