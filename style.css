@@ -102,7 +102,7 @@ body {
     border: none;
     width: 70%;
 }
-* LEARNING SECTION */
+/* LEARNING SECTION */
 section h2 {
     text-align: center;
     margin-top: 40px;
@@ -126,4 +126,21 @@ video {
     width: 200px;
     border-radius: 15px;
     background: black;
+}
+
+/* FOOTER */
+footer {
+    background: linear-gradient(to right, #000000, #434343);
+    padding: 30px;
+    text-align: center;
+}
+
+footer h2 {
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: #4cc9f0;
+    text-decoration: none;
+    font-weight: bold;
 }
