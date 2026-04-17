@@ -33,7 +33,7 @@ convertBtn.addEventListener("click", async  () => {
 
         resultEl.textContent = `${amount} ${coin.toUpperCase()} = ${total.toFixed(2)} ${currency.toUpperCase()}`;
 
-     catch (error) {
+     catch  (error) {
         resultEl.textContent = "Conversion failed. Try again.";
     }
 });  
