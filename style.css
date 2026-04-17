@@ -1,0 +1,14 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* BODY BACKGROUND */
+body {
+    background: linear-gradient(135deg, #1e1e5f, #3a0ca3, #7209b7, #f50370);
+    color: white;
+    min-height: 100vh;
+}
