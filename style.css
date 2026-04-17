@@ -83,3 +83,22 @@ body {
     border: none;
     width: 80%;
 }
+
+/* ALERTS */
+.alerts {
+    margin: 40px auto;
+    padding: 30px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    background: linear-gradient(135deg, #ffbe0b, #fb5607);
+    border-radius: 25px;
+    color: black;
+}
+
+.alerts input {
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    width: 70%;
+}
