@@ -65,3 +65,21 @@ form.addEventListener("submit", async (e) => {
         nameEl.textContent = data.name;
         priceEl.textContent = `Price: $${price}`;
         changeEl.textContent = `24h Change: ${change.toFixed(2)}%`;
+
+        const chartRes = await fetch(
+            `https://api.coingecko.com/api/v3/coins/${coin}/market_chart?vs_currency=usd&days=7`
+        );
+        const chartData = await chartRes.json();
+
+        const prices = chartData.prices.map(p => p[1]);
+        const labels = chartData.prices.map(p => {
+            const date = new Date(p[0]);
+            return date.toLocaleDateString();
+        });
+
+        renderChart(labels, prices, data.name);
+
+    } catch (error) {
+        alert("Crypto not found. Try: bitcoin, ethereum, solana");
+    }
+});
