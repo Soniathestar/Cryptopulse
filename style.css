@@ -37,6 +37,41 @@ body {
     color: white;
 }
 
+/* SEARCH SECTION */
+.searchsection {
+    text-align: center;
+    margin: 40px 0;
+}
+
+#searchtext {
+    padding: 12px;
+    width: 250px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #00f5d4, #4cc9f0);
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #4cc9f0, #00f5d4);
+}
+
+.hint {
+    margin-top: 10px;
+    color: #ddd;
+}
+
 /* RESULTS SECTION */
 .results-section {
     display: flex;
@@ -63,7 +98,7 @@ body {
     color: #000000;
 }
 
-* CONVERTER */
+/* CONVERTER */
 .converter {
     margin: 40px auto;
     padding: 30px;
@@ -102,6 +137,7 @@ body {
     border: none;
     width: 70%;
 }
+
 /* LEARNING SECTION */
 section h2 {
     text-align: center;

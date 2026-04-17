@@ -1,21 +1,19 @@
-//DOM manipulation
 const convertBtn = document.getElementById("converter");
 const amountInput = document.getElementById("amount");
 const currencySelect = document.getElementById("popcurrencies");
 const resultEl = document.getElementById("results");
 const searchInputCoin = document.getElementById("searchtext");
-
 // Validating user input
 convertBtn.addEventListener("click", async  () => {
     const amount = parseFloat(amountInput.value);
     const currency = currencySelect.value;
     const coin = searchInputCoin.value.toLowerCase();
 
-    if (isNaN(amount) || coin.trim() === "") {
-    resultEl.textContent = "Enter a valid amount and crypto name first.";
-    return;
-     }
-     //Fetching data from the coinGecko API
+    if (!amount || !coin) {
+        resultEl.textContent = "Enter amount and crypto name first.";
+        return;
+    }
+//Fetching data from the coinGecko API
     try {
         const res = await fetch(
             `https://api.coingecko.com/api/v3/simple/price?ids=${coin}&vs_currencies=${currency}`
@@ -26,20 +24,20 @@ convertBtn.addEventListener("click", async  () => {
             resultEl.textContent = "Invalid crypto name.";
             return;
         }
-       }
-    //Conversion of price
+//Conversion of price
         const price = data[coin][currency];
         const total = amount * price;
 
         resultEl.textContent = `${amount} ${coin.toUpperCase()} = ${total.toFixed(2)} ${currency.toUpperCase()}`;
 
-     catch  (error) {
+    } catch (error) {
         resultEl.textContent = "Conversion failed. Try again.";
     }
-});  
+}); 
 
 const form = document.getElementById("searchform");
 const searchInput = document.getElementById("searchtext");
+
 const nameEl = document.getElementById("cryptoname");
 const priceEl = document.getElementById("cryptoprice");
 const changeEl = document.getElementById("cyptochange");
@@ -66,6 +64,7 @@ form.addEventListener("submit", async (e) => {
         priceEl.textContent = `Price: $${price}`;
         changeEl.textContent = `24h Change: ${change.toFixed(2)}%`;
 
+        
         const chartRes = await fetch(
             `https://api.coingecko.com/api/v3/coins/${coin}/market_chart?vs_currency=usd&days=7`
         );
@@ -83,6 +82,7 @@ form.addEventListener("submit", async (e) => {
         alert("Crypto not found. Try: bitcoin, ethereum, solana");
     }
 });
+
 
 function renderChart(labels, data, label) {
     const ctx = document.getElementById("chart").getContext("2d");
@@ -110,6 +110,8 @@ function renderChart(labels, data, label) {
     });
 }
 
+// ===== CONFIG =====
+// Change this to your coin ID (e.g. bitcoin, ethereum, solana)
 const coinId = "bitcoin";
 const vsCurrency = "usd";
 
@@ -135,6 +137,7 @@ setAlertBtn.addEventListener("click", () => {
     statusText.textContent = `Alert set: notify when ${coinId} < ${alertPrice}`;
 });
 
+// ===== FETCH PRICE FROM COINGECKO =====
 async function fetchPrice() {
     try {
         const url = `https://api.coingecko.com/api/v3/simple/price?ids=${coinId}&vs_currencies=${vsCurrency}`;
@@ -153,15 +156,19 @@ async function fetchPrice() {
     }
 }
 
+// ===== CHECK ALERT =====
 function checkAlert() {
     if (alertPrice !== null && currentPrice <= alertPrice) {
         statusText.textContent = `🚨 ALERT! ${coinId} is now ${currentPrice}`;
 
+        // browser popup
         alert(`Price Alert: ${coinId} dropped to ${currentPrice}`);
+
+        // reset alert (optional)
         alertPrice = null;
     }
 }
 
-
-fetchPrice(); 
-setInterval(fetchPrice, 15000); 
+// ===== START POLLING =====
+fetchPrice(); // initial call
+setInterval(fetchPrice, 15000); // every 15 seconds
