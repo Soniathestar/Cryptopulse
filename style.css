@@ -36,3 +36,29 @@ body {
     margin-inline: auto;
     color: white;
 }
+
+/* RESULTS SECTION */
+.results-section {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 30px;
+}
+
+.cyptodetails {
+    background: linear-gradient(135deg, #4361ee, #4895ef);
+    padding: 20px;
+    border-radius: 20px;
+    width: 600px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+.graphcontainer {
+    background: linear-gradient(135deg, #b5179e, #f72585);
+    padding: 20px;
+    border-radius: 20px;
+    width: 800px;
+    height: 500px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    color: #000000;
+}
