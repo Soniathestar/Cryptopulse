@@ -4,3 +4,14 @@ const amountInput = document.getElementById("amount");
 const currencySelect = document.getElementById("popcurrencies");
 const resultEl = document.getElementById("results");
 const searchInputCoin = document.getElementById("searchtext");
+
+// Validating user input
+convertBtn.addEventListener("click", async  () => {
+    const amount = parseFloat(amountInput.value);
+    const currency = currencySelect.value;
+    const coin = searchInputCoin.value.toLowerCase();
+
+    if (!amount || !coin) {
+        resultEl.textContent = "Enter amount and crypto name first.";
+        return;
+    }
