@@ -83,3 +83,29 @@ form.addEventListener("submit", async (e) => {
         alert("Crypto not found. Try: bitcoin, ethereum, solana");
     }
 });
+
+function renderChart(labels, data, label) {
+    const ctx = document.getElementById("chart").getContext("2d");
+
+    // destroy old chart before creating new one
+    if (chart) {
+        chart.destroy();
+    }
+
+    chart = new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: labels,
+            datasets: [{
+                label: `${label} Price (USD)`,
+                data: data,
+                borderColor: "blue",
+                backgroundColor: "rgba(0, 0, 255, 0.1)",
+                tension: 0.3
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+}
