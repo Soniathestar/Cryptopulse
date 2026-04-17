@@ -102,3 +102,28 @@ body {
     border: none;
     width: 70%;
 }
+* LEARNING SECTION */
+section h2 {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.learning {
+    text-align: center;
+    margin: 10px auto;
+    max-width: 600px;
+}
+
+.eduvideos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    margin: 20px;
+}
+
+video {
+    width: 200px;
+    border-radius: 15px;
+    background: black;
+}
