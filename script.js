@@ -43,3 +43,25 @@ const searchInput = document.getElementById("searchtext");
 const nameEl = document.getElementById("cryptoname");
 const priceEl = document.getElementById("cryptoprice");
 const changeEl = document.getElementById("cyptochange");
+
+let chart; 
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const coin = searchInput.value.toLowerCase();
+
+    if (!coin) return;
+
+    try {
+        // 1. Get coin data
+        const response = await fetch(
+            `https://api.coingecko.com/api/v3/coins/${coin}`
+        );
+        const data = await response.json();
+
+        const price = data.market_data.current_price.usd;
+        const change = data.market_data.price_change_percentage_24h;
+
+        nameEl.textContent = data.name;
+        priceEl.textContent = `Price: $${price}`;
+        changeEl.textContent = `24h Change: ${change.toFixed(2)}%`;
