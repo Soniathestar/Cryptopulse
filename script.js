@@ -109,3 +109,59 @@ function renderChart(labels, data, label) {
         }
     });
 }
+
+const coinId = "bitcoin";
+const vsCurrency = "usd";
+
+// ===== STATE =====
+let currentPrice = 0;
+let alertPrice = null;
+
+// ===== DOM =====
+const alertInput = document.getElementById("alertvalue");
+const setAlertBtn = document.getElementById("setalert");
+const statusText = document.getElementById("alertstatus");
+
+// ===== SET ALERT =====
+setAlertBtn.addEventListener("click", () => {
+    const value = parseFloat(alertInput.value);
+
+    if (isNaN(value) || value <= 0) {
+        statusText.textContent = "Enter a valid price";
+        return;
+    }
+
+    alertPrice = value;
+    statusText.textContent = `Alert set: notify when ${coinId} < ${alertPrice}`;
+});
+
+async function fetchPrice() {
+    try {
+        const url = `https://api.coingecko.com/api/v3/simple/price?ids=${coinId}&vs_currencies=${vsCurrency}`;
+
+        const res = await fetch(url);
+        const data = await res.json();
+
+        currentPrice = data[coinId][vsCurrency];
+
+        console.log("Current price:", currentPrice);
+
+        checkAlert();
+    } catch (error) {
+        console.error("Error fetching price:", error);
+        statusText.textContent = "Error fetching price data";
+    }
+}
+
+function checkAlert() {
+    if (alertPrice !== null && currentPrice <= alertPrice) {
+        statusText.textContent = `🚨 ALERT! ${coinId} is now ${currentPrice}`;
+
+        alert(`Price Alert: ${coinId} dropped to ${currentPrice}`);
+        alertPrice = null;
+    }
+}
+
+
+fetchPrice(); 
+setInterval(fetchPrice, 15000); 
